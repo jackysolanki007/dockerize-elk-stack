@@ -61,5 +61,17 @@ nano kibana.yaml
 OR
 nano docker-compose.yaml
 ```
+9) Start the Kibana container by running the following command:
+```
+sudo docker-compose -f kibana.yaml up -d 
+OR
+sudo docker-compose up -d kibana
+```
+10) Once all the containers are successfully started, open your web browser and explore the Kibana dashboard by accessing the following URL:
+```
+http://<your-ip-address>:5601
+```
+Replace <your-ip-address> with the appropriate IP address or hostname to access the Kibana dashboard.
 
-Please follow these steps to configure the ELK stack. Make sure to replace any placeholder values with the appropriate ones for your setup.
+
+Note: Ensure that you have started all the necessary containers, including Elasticsearch, Filebeat, and Kibana, before accessing the Kibana dashboard.
