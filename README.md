@@ -22,6 +22,7 @@ Follow below steps to configure ELK stack.
 1) Create a Docker network for the environment.
 ```
 sudo docker network create elk-network
+```
 
 2) Change ownership of the Elasticsearch folder:
 ```
