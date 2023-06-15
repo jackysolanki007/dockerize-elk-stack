@@ -17,5 +17,47 @@ Once the ELK Stack is dockerized, you can run the containers on a Docker host or
 Overall, "dockerize-elk-stack" enables you to easily set up and manage the ELK Stack using Docker containers, providing a scalable and efficient solution for log management and analysis.
 
 
+Follow below steps to configure ELK stack.
 
+1) Create a Docker network for the environment.
+```
+sudo docker network create elk-network
 
+2) Change ownership of the Elasticsearch folder:
+```
+sudo chown -R 1000:1000 data/elasticsearch/
+```
+3) Start the Elasticsearch container:
+```
+sudo docker-compose -f elastic-search.yaml up -d 
+OR
+sudo docker-compose up -d es
+```
+4) Generate passwords for Elasticsearch and Kibana:
+```
+docker exec es /bin/bash -c "bin/elasticsearch-setup-passwords auto --batch --url http://es:9200 "
+```
+5) Note down all the generated passwords and keep them in a safe place for future use.
+
+6) Edit the filebeat.yaml file and update the password for the "elastic" user. Also, add the ELASTICSEARCH_PASSWORD in the filebeat.yaml:
+```
+nano data/pipeline/filebeat.yaml
+And
+nano filebeat.yaml
+OR
+nano docker-compose.yaml
+```
+7) Start the Filebeat container:
+```
+sudo docker-compose -f filebeat.yaml up -d 
+OR
+sudo docker-compose up -d filebeat
+```
+8) Configure the kibana.yaml file and add the password for the kibana_system user:
+```
+nano kibana.yaml
+OR
+nano docker-compose.yaml
+```
+
+Please follow these steps to configure the ELK stack. Make sure to replace any placeholder values with the appropriate ones for your setup.

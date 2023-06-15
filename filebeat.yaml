@@ -1,0 +1,26 @@
+version: "3.7"
+
+services:
+  filebeat:
+    image: docker.elastic.co/beats/filebeat:8.3.3
+    container_name: filebeat
+    user: root
+    environment:
+      - setup.kibana.host=http://kibana:5601
+      - output.elasticsearch.hosts=["es:9200"]
+      - ELASTICSEARCH_USERNAME=elastic
+      - ELASTICSEARCH_PASSWORD=
+    volumes:
+      - ./data/pipeline/filebeat.yml:/usr/share/filebeat/filebeat.yml:ro
+      - /var/lib/docker/containers:/var/lib/docker/containers:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    expose:
+      - 80
+    networks:
+      - elk-network
+
+networks:
+  elk-network:
+    driver: bridge
+    name: elk-network
+    external: true
