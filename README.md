@@ -73,5 +73,6 @@ http://<your-ip-address>:5601
 ```
 Replace <your-ip-address> with the appropriate IP address or hostname to access the Kibana dashboard.
 
+11) Now, for the first time, you need to log in using the 'elastic' username. Once logged in, you can create different users with different permissions based on your requirements.
 
 Note: Ensure that you have started all the necessary containers, including Elasticsearch, Filebeat, and Kibana, before accessing the Kibana dashboard.
