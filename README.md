@@ -16,6 +16,7 @@ Once the ELK Stack is dockerized, you can run the containers on a Docker host or
 
 Overall, "dockerize-elk-stack" enables you to easily set up and manage the ELK Stack using Docker containers, providing a scalable and efficient solution for log management and analysis.
 
+Dockerizing the ELK stack involves containerizing the two main components of Elasticsearch and Kibana, along with integrating Filebeat for log shipping. Elasticsearch provides a distributed search and analytics engine for storing and searching logs, while Kibana offers a user-friendly interface for visualizing and analyzing logs. Filebeat, a lightweight log shipper, is utilized to collect and forward logs from various sources to Elasticsearch. By leveraging Docker, the ELK stack becomes portable and can be deployed consistently across different environments. Each component is encapsulated within a Docker container, ensuring isolation and simplifying the deployment process. Docker-compose can be used to define and manage the stack as a whole, making it straightforward to start, stop, and scale the ELK services. Additionally, by incorporating other Docker tools like Metricbeat for collecting system metrics, the ELK stack can seamlessly integrate with containerized applications, providing powerful monitoring and analysis capabilities for modern microservices architectures.
 
 Follow below steps to configure ELK stack.
 
